@@ -75,7 +75,11 @@ const limiter = rateLimit({
 app.use(limiter);
 
 //Security Headers
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 //Prevent XSS
 app.use(xss());
